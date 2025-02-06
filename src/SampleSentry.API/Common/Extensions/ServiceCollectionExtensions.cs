@@ -21,6 +21,7 @@ namespace SampleSentry.API.Common.Extensions
             });
 
             services.AddScoped<CreateCategoryValidator>();
+            services.AddScoped<UpdateCategoryValidator>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddScoped<CreateApplicationUserValidator>();

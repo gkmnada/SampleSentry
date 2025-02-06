@@ -16,5 +16,17 @@ namespace SampleSentry.API.Repositories.Category
             await _context.AddAsync(category);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Entities.Category> GetCategoryById(Guid id)
+        {
+            var values = await _context.Categories.FindAsync(id) ?? throw new Exception("Category not found");
+            return values;
+        }
+
+        public async Task UpdateCategoryAsync(Entities.Category category)
+        {
+            _context.Categories.Update(category);
+            await _context.SaveChangesAsync();
+        }
     }
 }
